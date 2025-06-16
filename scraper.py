@@ -1,7 +1,8 @@
 import json
 import requests
 
-url = 'https://transparencia.e-publica.net/epublica-portal/rest/florianopolis/compras/licitacao/form?ano=2025&entidade=2002'
+# url = 'https://transparencia.e-publica.net/epublica-portal/rest/florianopolis/compras/licitacao/form?ano=2025&entidade=2002'
+url = 'https://transparencia.e-publica.net/epublica-portal/rest/florianopolis/compras/contrato/form?ano=2025&entidade=2002'
 
 headers = {
   'Content-Type': 'application/json',
@@ -10,7 +11,7 @@ headers = {
 
 registros = []
 
-with open('responses/response_licitacoes_2018-2024.json', 'r') as f:
+with open('responses/response_contratos_2018-2024.json', 'r') as f:
     data = json.load(f)
     # anos = ['2015', '2016', '2017']
     ids_licitacao = []
@@ -38,5 +39,5 @@ with open('responses/response_licitacoes_2018-2024.json', 'r') as f:
                 print(id_licitacao)
 # print(len(registros))
 
-with open(f'licitacoes_2018-2024.json', 'w') as f:
+with open(f'contratos_2018-2024.json', 'w') as f:
     json.dump(registros, f)
